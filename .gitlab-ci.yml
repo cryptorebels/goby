@@ -1,0 +1,66 @@
+stages:
+- test
+- analysis
+- build
+- deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+cache:
+  paths:
+  - build/
+  - node_modules/
+  - coverage/
+
+test:
+  stage: test
+  image: node:8.9
+  before_script:
+  - yarn
+  script:
+  - yarn test -- --coverage
+
+sonarqube:
+  stage: test
+  image: ciricihq/gitlab-sonar-scanner
+  variables:
+    SONAR_URL: http://sonar.caprica.cir
+    SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
+    SONAR_ANALYSIS_MODE: preview
+  script:
+  - /usr/bin/sonar-scanner-run.sh
+
+sonarqube-reports:
+  stage: analysis
+  only:
+  - master
+  - tags
+  dependencies:
+  - test
+  image: ciricihq/gitlab-sonar-scanner
+  variables:
+    SONAR_URL: http://sonar.caprica.cir
+    SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
+    SONAR_ANALYSIS_MODE: publish
+  script:
+  - unset CI_BUILD_REF && /usr/bin/sonar-scanner-run.sh
+
+build:
+  stage: build
+  image: node:8.9
+  before_script:
+  - yarn
+  script:
+  - yarn run build
+
+deploy:
+  stage: deploy
+  image: ciricihq/node:lts-oc
+  only:
+  - tags
+  before_script:
+  - oc --version
+  script:
+  - oc registry add https://components.alvarium.io
+  - "NODE_ENV=production oc publish . --username cirici --password $REGISTRY_PASSWORD"

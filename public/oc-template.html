@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="{{ staticPath }}build/static/css/main.css" />
+<script>
+  window.oc = window.oc || {};
+  oc.cmd = oc.cmd || [];
+
+  var mainScript = "{{ staticPath }}build/static/js/main.js";
+
+  oc.cmd.push(function(){
+    oc.require(mainScript, function() {
+      {{#with params}}
+      // Select available widget
+      {{#if app_selector }}
+      FormsWidgets.default.app({
+        selector: "{{ app_selector }}",
+      });
+      {{/if}}
+      {{/with}}
+    })
+  })
+</script>
