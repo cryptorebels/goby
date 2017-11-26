@@ -10,11 +10,13 @@ export default class Image extends Component {
   }
 
   render() {
-    let logo = <img
-      src={this.props.logo}
-      alt={this.props.name}
-      className='img-responsive ticker-logo'
-    />
+    const logo = (
+      <img
+        src={this.props.logo}
+        alt={this.props.name}
+        className='img-responsive ticker-logo'
+      />
+    )
     if (!this.props.logo) {
       return <span className='no-logo ticker-logo'>¿?</span>
     }
