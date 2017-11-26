@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Image from './Image'
+import './index.css'
 
 export default class Ticker extends Component {
   static PopTypes = {
@@ -13,17 +14,13 @@ export default class Ticker extends Component {
 
   render() {
     return (
-      <div className='ticker col-lg-3 col-md-4'>
-        <div className='info-box'>
-          <span className='info-box-icon'>
-            <Image {...this.props} />
-          </span>
-          <div className='info-box-content'>
-            <div className='box-header no-padding'>
-              {this.props.name}
-            </div>
+      <div className='ticker col-lg-2 col-md-3 col-sm-4 col-xs-6'>
+        <span className='thumbnail'>
+          <Image {...this.props} />
+          <div className='caption'>
+            <span class="name">{this.props.name}</span>
           </div>
-        </div>
+        </span>
       </div>
     )
   }
