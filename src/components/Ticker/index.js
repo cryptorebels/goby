@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Image from './Image'
-import './index.css'
+import './index.scss'
 
 export default class Ticker extends Component {
   static PopTypes = {
@@ -18,7 +18,7 @@ export default class Ticker extends Component {
         <span className='thumbnail'>
           <Image {...this.props} />
           <div className='caption'>
-            <span class="name">{this.props.name}</span>
+            <span className='name'>{this.props.name}</span>
           </div>
         </span>
       </div>
