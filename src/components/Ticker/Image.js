@@ -16,7 +16,7 @@ export default class Image extends Component {
       className='img-responsive ticker-logo'
     />
     if (!this.props.logo) {
-      return '?'
+      return <span className='no-logo ticker-logo'>¿?</span>
     }
     return logo
   }

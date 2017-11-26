@@ -3,6 +3,12 @@
 .ticker-logo {
   max-height: 60px;
   font-size: 0;
+
+  &.no-logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 
 @media (min-width: $device-sm) {
@@ -11,7 +17,7 @@
 
     .horizontal & {
       max-width: 40px;
-      max-height: 48px;
+      max-height: 38px;
       flex: 1;
     }
   }

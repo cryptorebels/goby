@@ -1,5 +1,6 @@
 .ticker {
   .caption {
+    white-space: nowrap;
     text-align: center;
     display: block;
     overflow: hidden;
@@ -10,8 +11,10 @@
   &.horizontal {
     .thumbnail {
       display: flex;
+      align-items: center;
     }
     .caption {
+      text-align: left;
       flex: 3;
     }
   }
