@@ -1,1 +1,5 @@
 export const API_KEY_SET = 'API_KEY_SET'
+
+export const MARKETS_GET = 'MARKETS_GET'
+export const MARKETS_GET_SUCCESS = 'MARKETS_GET_SUCCESS'
+export const MARKETS_GET_ERROR = 'MARKETS_GET_ERROR'
