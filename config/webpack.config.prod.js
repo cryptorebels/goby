@@ -57,7 +57,7 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
   output: {
-    library: 'FormsWidgets',
+    library: 'Goby',
     libraryTarget: 'umd',
     // The build folder.
     path: paths.appBuild,

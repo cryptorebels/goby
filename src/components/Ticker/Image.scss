@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.ticker-logo {
+  max-height: 60px;
+  font-size: 0;
+}
+
+@media (min-width: 680px) {
+  .ticker-logo {
+    max-height: 90px;
+  }
+}

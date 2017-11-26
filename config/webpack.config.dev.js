@@ -53,7 +53,7 @@ module.exports = {
     // changing JS code would still trigger a refresh.
   ],
   output: {
-    library: 'FormsWidgets',
+    library: 'Goby',
     libraryTarget: 'umd',
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
