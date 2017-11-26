@@ -1,8 +1,6 @@
-
-
+const path = require('path')
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware')
-const path = require('path')
 const config = require('./webpack.config.dev')
 const paths = require('./paths')
 

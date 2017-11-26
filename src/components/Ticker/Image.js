@@ -5,7 +5,7 @@ import './Image.scss'
 
 export default class Image extends Component {
   static propTypes = {
-    logo: PropTypes.string.isRequired,
+    logo: PropTypes.string,
     name: PropTypes.string.isRequired,
   }
 

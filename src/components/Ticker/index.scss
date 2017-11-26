@@ -1,5 +1,18 @@
 .ticker {
   .caption {
     text-align: center;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+
+  &.horizontal {
+    .thumbnail {
+      display: flex;
+    }
+    .caption {
+      flex: 3;
+    }
   }
 }

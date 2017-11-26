@@ -1,5 +1,5 @@
-import reducer from './api'
 import { API_KEY_SET } from '../constants/actionTypes'
+import reducer from './api'
 
 describe('api reducer', () => {
   it('should return the default state', () => {

@@ -5,8 +5,14 @@
   font-size: 0;
 }
 
-@media (min-width: 680px) {
+@media (min-width: $device-sm) {
   .ticker-logo {
     max-height: 90px;
+
+    .horizontal & {
+      max-width: 40px;
+      max-height: 48px;
+      flex: 1;
+    }
   }
 }

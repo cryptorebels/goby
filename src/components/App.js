@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import Ticker from './Ticker'
+
 import { get } from '../actions/markets'
+import Ticker from './Ticker'
 
 import './App.css'
 
@@ -15,7 +16,7 @@ export default class App extends Component {
       <div className='row'>
       {
         _.map(this.props.markets.all, (market) => {
-          return <Ticker {...market} key={market.id} />
+          return <Ticker {...market} key={market.id} orientation='horizontal' />
         })
       }
       </div>
