@@ -1,12 +1,11 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import {
-    BrowserRouter as Router,
-    Route,
+  BrowserRouter as Router,
+  Route,
 } from 'react-router-dom'
 import _ from 'lodash'
 
+import Error from '../containers/Error'
 import Selector from '../containers/Selector'
 import Dashboard from '../containers/Dashboard'
 import Container from './Container'
@@ -24,23 +23,20 @@ const routes = [
   },
 ]
 
-const Root = ({store}) => (
-  <Provider store={store}>
-    <Router>
-      <Container>
-        <Navbar />
-        {
-          _.map(routes, (route) =>
-            <Route {...route} key={route.path} />
-          )
-        }
-      </Container>
-    </Router>
-  </Provider>
-)
-
-Root.propTypes = {
-  store: PropTypes.object.isRequired,
+export default class Root extends Component {
+  render() {
+    return (
+      <Router>
+        <Container>
+          <Error />
+          <Navbar />
+          {
+            _.map(routes, (route) =>
+              <Route {...route} key={route.path} />
+            )
+          }
+        </Container>
+      </Router>
+    )
+  }
 }
-
-export default Root

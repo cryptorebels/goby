@@ -12,6 +12,7 @@ const defaultState = {
   all: {},
   ids: [],
   visible: {},
+  error: false,
 }
 
 export default (state = defaultState, action = {}) => {
@@ -27,9 +28,18 @@ export default (state = defaultState, action = {}) => {
       }
     }
 
-    case MARKETS_GET_ERROR:
-      console.error(action.error)
-      return state
+    case MARKETS_GET_ERROR: {
+      const { error } = action
+      console.error(error)
+      let message = false
+      if (!error.response) {
+        message = 'There\'s no connection with the API'
+      }
+      return {
+        ...state,
+        error: message,
+      }
+    }
 
     case MARKETS_FILTER: {
       const { all } = state

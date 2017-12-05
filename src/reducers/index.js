@@ -4,6 +4,7 @@ import _ from 'lodash'
 import api from './api'
 import markets from './markets'
 import events from './events'
+import balances from './balances'
 
 export const idsMapper = (arrayOfObjects, id = 'id') => {
   const all = {}
@@ -21,6 +22,7 @@ export const idsMapper = (arrayOfObjects, id = 'id') => {
 
 export default combineReducers({
   api,
+  balances,
   markets,
   events,
 })
