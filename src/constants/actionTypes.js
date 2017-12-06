@@ -1,7 +1,17 @@
 export const API_KEY_SET = 'API_KEY_SET'
 
+/*
+ * Markets
+ */
 export const MARKETS_GET = 'MARKETS_GET'
 export const MARKETS_GET_SUCCESS = 'MARKETS_GET_SUCCESS'
 export const MARKETS_GET_ERROR = 'MARKETS_GET_ERROR'
 
 export const MARKETS_FILTER = 'MARKETS_FILTER'
+
+/*
+ * Balances
+ */
+export const BALANCES_GET = 'BALANCES_GET'
+export const BALANCES_GET_ERROR = 'BALANCES_GET_ERROR'
+export const BALANCES_GET_SUCCESS = 'BALANCES_GET_SUCCESS'

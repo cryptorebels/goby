@@ -1,45 +1,44 @@
 import _ from 'lodash'
 
+import { connectionErrorMessage } from '../utils'
 import {
   MARKETS_GET_SUCCESS,
   MARKETS_GET_ERROR,
   MARKETS_FILTER,
+  MARKETS_GET,
 } from '../constants/actionTypes'
-
 import { idsMapper } from '.'
 
 const defaultState = {
   all: {},
   ids: [],
-  visible: {},
+  visible: [],
   error: false,
 }
 
 export default (state = defaultState, action = {}) => {
   switch (action.type) {
+    case MARKETS_GET:
+      return {
+        ...state,
+        error: false,
+      }
+
     case MARKETS_GET_SUCCESS: {
-      const markets = idsMapper(action.data)
-      const visible = markets.all
+      const markets = idsMapper(action.markets, 'ticker')
 
       return {
         ...state,
         ...markets,
-        visible,
+        visible: Object.values(markets.all),
       }
     }
 
-    case MARKETS_GET_ERROR: {
-      const { error } = action
-      console.error(error)
-      let message = false
-      if (!error.response) {
-        message = 'There\'s no connection with the API'
-      }
+    case MARKETS_GET_ERROR:
       return {
         ...state,
-        error: message,
+        error: connectionErrorMessage(action.error),
       }
-    }
 
     case MARKETS_FILTER: {
       const { all } = state

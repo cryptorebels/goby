@@ -13,12 +13,19 @@ export default class Search extends Component {
     }).isRequired,
   }
 
+  sample = ''
+
   onSearch(e) {
     this.props.dispatch(filter(e.target.value))
   }
 
   render() {
-    const sample = _.sample(this.props.markets.all)
+    if (!this.sample.length) {
+      const sample = _.sample(this.props.markets.all)
+      if (sample && sample.name) {
+        this.sample = sample.name
+      }
+    }
 
     return (
       <div className="form-group">
@@ -27,7 +34,7 @@ export default class Search extends Component {
           type="text"
           onKeyUp={this.onSearch.bind(this)}
           autoFocus={true}
-          placeholder={sample ? sample.name : ''}
+          placeholder={this.sample}
         />
       </div>
     )

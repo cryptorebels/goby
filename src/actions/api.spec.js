@@ -6,7 +6,7 @@ import * as actions from './api'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-describe('api actions', () => {
+describe('actions::api', () => {
   it('setKey calls API_KEY_SET', () => {
     const expectedActions = [
       {

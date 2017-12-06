@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import Dashboard from './../components/Dashboard'
+import Balances from '../components/Balances'
 
 export default connect(
   (state) => ({
     markets: state.markets,
-
+    balances: state.balances,
   })
-)(Dashboard)
+)(Balances)

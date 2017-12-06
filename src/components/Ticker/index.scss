@@ -7,6 +7,9 @@
     width: 100%;
     text-overflow: ellipsis;
   }
+  .amount {
+    display: block;
+  }
 
   &.horizontal {
     .thumbnail {

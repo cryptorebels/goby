@@ -6,8 +6,9 @@ import {
 import _ from 'lodash'
 
 import Error from '../containers/Error'
-import Selector from '../containers/Selector'
+import Balances from '../containers/Balances'
 import Dashboard from '../containers/Dashboard'
+import Selector from '../containers/Selector'
 import Container from './Container'
 import Navbar from './Navbar'
 
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/ticker-add',
     component: Selector,
+  },
+  {
+    path: '/balances',
+    component: Balances,
   },
 ]
 

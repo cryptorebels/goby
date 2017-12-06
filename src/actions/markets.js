@@ -1,21 +1,39 @@
+import axios from 'axios'
 import {
-    MARKETS_GET,
-    MARKETS_GET_SUCCESS,
-    MARKETS_GET_ERROR,
-    MARKETS_FILTER,
+  MARKETS_GET,
+  MARKETS_GET_SUCCESS,
+  MARKETS_GET_ERROR,
+  MARKETS_FILTER,
 } from '../constants/actionTypes'
+import { uri, parseResponse } from '../utils'
 
-import {
-  get as getMarkets,
-} from '../api/markets'
+const marketsGet = () => ({
+  type: MARKETS_GET,
+})
+
+const marketsGetSuccess = (markets) => ({
+  type: MARKETS_GET_SUCCESS,
+  markets,
+})
+
+const marketsGetError = (error) => ({
+  type: MARKETS_GET_ERROR,
+  error,
+})
+
+const marketsFilter = (keyword) => ({
+  type: MARKETS_FILTER,
+  keyword,
+})
 
 export const get = () => (dispatch) => {
-  dispatch({ type: MARKETS_GET })
+  dispatch(marketsGet())
 
-  return getMarkets()
-    .then((data) => dispatch({ type: MARKETS_GET_SUCCESS, data }))
-    .catch((error) => dispatch({ type: MARKETS_GET_ERROR, error }))
+  return axios.get(uri('markets'))
+    .then(parseResponse)
+    .then((markets) => dispatch(marketsGetSuccess(markets)))
+    .catch((error) => dispatch(marketsGetError(error)))
 }
 
 export const filter = (keyword) => (dispatch) =>
-  dispatch({ type: MARKETS_FILTER, keyword })
+  dispatch(marketsFilter(keyword))

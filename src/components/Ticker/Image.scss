@@ -1,5 +1,7 @@
 @import '../../variables.scss';
 
+$max-height: 80px;
+
 .ticker-logo {
   max-height: 60px;
   font-size: 0;
@@ -7,13 +9,24 @@
   &.no-logo {
     font-size: 20px;
     font-weight: bold;
+    display: block;
+    align-items: center;
+    align-content: center;
+    line-height: $max-height;
+    min-height: $max-height;
     text-align: center;
+  }
+
+  .horizontal &.no-logo {
+    display: inline;
+    min-height: 0;
+    line-height: 1;
   }
 }
 
 @media (min-width: $device-sm) {
   .ticker-logo {
-    max-height: 90px;
+    max-height: $max-height;
 
     .horizontal & {
       max-width: 40px;

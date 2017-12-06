@@ -10,7 +10,7 @@ export default class Selector extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     markets: PropTypes.shape({
-      visible: PropTypes.object.isRequired,
+      visible: PropTypes.array.isRequired,
     }).isRequired,
   }
 
@@ -25,11 +25,11 @@ export default class Selector extends Component {
       <div className="ticker selector">
         <Search {...this.props} />
         <div className="row">
-        {
-          _.map(visible, (market) => {
-            return <Ticker {...market} key={market.id} orientation="horizontal" />
-          })
-        }
+          {
+            _.map(visible, (market) => {
+              return <Ticker {...market} key={market.id} orientation="horizontal" />
+            })
+          }
         </div>
       </div>
     )
