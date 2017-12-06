@@ -14,5 +14,5 @@ export default {
         <Root />
       </Provider>
     ), document.querySelector(config.selector))
-  }
+  },
 }

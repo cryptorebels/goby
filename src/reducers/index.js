@@ -16,7 +16,7 @@ export const idsMapper = (arrayOfObjects, id = 'id') => {
 
   return {
     all,
-    ids
+    ids,
   }
 }
 

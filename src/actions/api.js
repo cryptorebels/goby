@@ -2,7 +2,7 @@ import { API_KEY_SET } from '../constants/actionTypes'
 
 const apiKeySet = (key) => ({
   type: API_KEY_SET,
-  key
+  key,
 })
 
 /**
