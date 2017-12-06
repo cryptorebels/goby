@@ -48,14 +48,14 @@ export default (state = defaultState, action = {}) => {
       if (!keyword.length) {
         return {
           ...state,
-          visible: all,
+          visible: Object.values(all),
         }
       }
 
       const visible = _.filter(all, (market) => {
         for (const key in market) {
           // exclude search in keys with the base keyword on them
-          if (['base', 'key'].indexOf(key) !== -1) {
+          if (['base', 'key', 'logo'].indexOf(key) !== -1) {
             continue
           }
 
