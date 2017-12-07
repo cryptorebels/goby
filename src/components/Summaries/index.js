@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
 import { get as getSummaries } from '../../actions/summaries'
+import SummaryRow from './SummaryRow'
 
 export default class Summaries extends Component {
   static propTypes = {
@@ -14,9 +15,13 @@ export default class Summaries extends Component {
   }
 
   render() {
+    const rows = this.props.summaries.ids.map((summaryId) => {
+      const summary = this.props.summaries.all[summaryId]
+      return <SummaryRow key={summaryId} summary={summary} />
+    })
     return (
       <div className='summaries-index'>
-        Summaries goes here
+        {rows}
       </div>
     )
   }

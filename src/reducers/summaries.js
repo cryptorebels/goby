@@ -23,7 +23,7 @@ export default (state = defaultState, action = {}) => {
     case SUMMARIES_GET_SUCCESS:
       return {
         ...state,
-        ...idsMapper(action.summaries, 'Currency'),
+        ...idsMapper(action.summaries, 'exchange'),
       }
 
     case SUMMARIES_GET_ERROR:
