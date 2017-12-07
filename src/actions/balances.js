@@ -16,7 +16,7 @@ export const balancesGetSuccess = (balances) => ({
 })
 
 export const balancesGetError = (error) => ({
-  typep: BALANCES_GET_ERROR,
+  type: BALANCES_GET_ERROR,
   error,
 })
 
