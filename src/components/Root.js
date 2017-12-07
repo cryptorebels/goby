@@ -7,6 +7,7 @@ import _ from 'lodash'
 
 import Error from '../containers/Error'
 import Balances from '../containers/Balances'
+import Summaries from '../containers/Summaries'
 import Dashboard from '../containers/Dashboard'
 import Selector from '../containers/Selector'
 import Container from './Container'
@@ -17,6 +18,10 @@ const routes = [
     path: '/',
     component: Dashboard,
     exact: true,
+  },
+  {
+    path: '/summaries',
+    component: Summaries,
   },
   {
     path: '/ticker-add',

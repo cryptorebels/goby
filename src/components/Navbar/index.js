@@ -10,6 +10,9 @@ export default class Navbar extends Component {
           <Link to="/" className="navbar-brand">
             Goby
           </Link>
+          <Link to="/summaries" className="btn btn-link navbar-btn">
+            Summaries
+          </Link>
           <Link to="/balances" className="btn btn-link navbar-btn">
             Your balances
           </Link>
