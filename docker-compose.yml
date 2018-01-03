@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  front:
+    build:
+      context: .
+
+  back:
+    image: gtrias/goby-api
+    links:
+    - db
+    ports:
+    - ${PORT-8080}:3000
+  db:
+    image: mongo:latest
