@@ -4,6 +4,8 @@ services:
   front:
     build:
       context: .
+    ports:
+    - 5000
 
   back:
     image: gtrias/goby-api
